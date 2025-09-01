@@ -6,9 +6,11 @@ export default function BackOfficeLayout({ children }: {
     return (
         <div className="flex">
             <Sidebar/>
-            <main className="flex-1 p-5">
-                {children}
-            </main>
+            <div className="flex-1 p-5 bg-teal-100 h-screen">
+                <div className="bg-white p-5 rounded-lg shadow-lg shadow-teal-400 overflow-auto ">
+                    {children}
+                </div>
+            </div>
         </div>
     )       
 }
