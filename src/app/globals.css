@@ -38,11 +38,12 @@
 
 input {
   padding: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   border: 1px solid #99f6e4; 
   border-radius: 6px;
   outline: none;
   transition: all 0.2s ease-in-out;
+  width: 100%;
 }
 
 input:focus {
@@ -63,6 +64,35 @@ input:focus {
 }
 
 .signin-box button:hover {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+
+.content-header {
+  font-size: x-large;
+  font-weight: 600;
+  font-family: bold;
+  color: #14b8a6;
+  margin-bottom: 5px;
+  outline: none;
+  padding-top: 0px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #14b8a6;
+}
+
+.btn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #14b8a6; 
+  border: 1px solid #14b8a6;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
   background-color: #0d9488;
   border-color: #0d9488;
 }
