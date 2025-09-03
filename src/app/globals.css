@@ -96,3 +96,56 @@ input:focus {
   background-color: #0d9488;
   border-color: #0d9488;
 }
+
+.table {
+  width: 100%;
+}
+
+.table thead {
+  background-color: #14b8a6;
+  color: white;
+}
+
+.table th, .table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.table tbody tr {
+    background-color: #eeeeee;
+}
+
+.btn-edit {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #4e6cef; 
+  border: 1px solid #4e6cef;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-edit:hover {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+
+.btn-delete {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #dd191d; 
+  border: 1px solid #dd191d;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;;
+}
+
+.btn-delete:hover {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+ 
