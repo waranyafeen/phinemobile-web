@@ -2,9 +2,19 @@ import Link from "next/link";
 
 export default function Sidebar() {
     return (
-        <div className="bg-teal-500 h-screen w-72">
-            <div className="bg-teal-700 text-white p-5 text-xl">
-                <h1>phineMobile Version 1.0</h1>
+        <div className="bg-teal-500 h-screen w-72 fixed">
+            <div className="bg-teal-700 text-white p-5 ">
+                <h1 className="text-xl font-bold">phineMobile Version 1.0</h1>
+                <div className="flex items-center gap-2 mt-3">
+                    <i className="fa fa-user mr-2 text-center"></i>
+                    <span className="w-full">ผู้ใช้งาน</span>
+                    <button className="bg-blue-500 rounded-full px-2 py-1">
+                        <i className="fa fa-pencil"></i>
+                    </button>
+                    <button className="bg-red-500 rounded-full px-2 py-1">
+                        <i className="fa fa-sign-out-alt"></i>
+                    </button>
+                </div>
             </div>
 
             <div className="flex flex-col gap-3 text-white text-xl p-5">
