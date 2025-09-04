@@ -154,15 +154,15 @@ export default function Page() {
                 <table className="table mt-3">
                     <thead>
                         <tr>
-                            <th>Serial</th>
-                            <th>ชื่อสินค้า</th>
-                            <th>รุ่น</th>
-                            <th>สี</th>
-                            <th>ราคา</th>
-                            <th>ชื่อผู้ซื้อ</th>
-                            <th>เบอร์โทรศัพท์ลูกค้า</th>
-                            <th>ที่อยู่ลูกค้า</th>
-                            <th>หมายเหตุ</th>
+                            <th className="text-left">Serial</th>
+                            <th className="text-left">ชื่อสินค้า</th>
+                            <th className="text-left">รุ่น</th>
+                            <th className="text-left">สี</th>
+                            <th className="text-right pr-0">ราคา</th>
+                            <th className="text-left">ชื่อผู้ซื้อ</th>
+                            <th className="text-left">เบอร์โทรศัพท์ลูกค้า</th>
+                            <th className="text-left">ที่อยู่ลูกค้า</th>
+                            <th className="text-left">หมายเหตุ</th>
                             <th className="w-[110px] "></th>
                         </tr>
                     </thead>
@@ -173,7 +173,7 @@ export default function Page() {
                                 <td>{product.name}</td>
                                 <td>{product.release}</td>
                                 <td>{product.color}</td>
-                                <td>{product.price}</td>
+                                <td className="text-right">{product.price}</td>
                                 <td>{product.customerName}</td>
                                 <td>{product.customerPhone}</td>
                                 <td>{product.customerAddress}</td>
@@ -193,42 +193,43 @@ export default function Page() {
             </div>
 
             <Modal title="เพิ่มรายการ" isOpen={isOpen} onClose={handleCloseModal}>
-                <div>serial สินค้า</div>
-                <input type="text" value={serial} onChange={(e) => setSerial(e.target.value)} />
+                <div className="modal-container">
+                    <div>serial สินค้า</div>
+                    <input type="text" value={serial} onChange={(e) => setSerial(e.target.value)} />
 
-                <div>ชื่อสินค้า</div>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <div>ชื่อสินค้า</div>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
 
-                <div>รุ่น</div>
-                <input type="text" value={release} onChange={(e) => setRelease(e.target.value)} />
+                    <div>รุ่น</div>
+                    <input type="text" value={release} onChange={(e) => setRelease(e.target.value)} />
 
-                <div>สี</div>
-                <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
+                    <div>สี</div>
+                    <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
 
-                <div>ราคา</div>
-                <input type="number" value={price} onChange={(e) => setPrice(Number(e.target.value))} />
+                    <div>ราคา</div>
+                    <input type="number" value={price} onChange={(e) => setPrice(Number(e.target.value))} />
 
-                <div>ชื่อผู้ซื้อ</div>
-                <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
+                    <div>ชื่อผู้ซื้อ</div>
+                    <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
 
-                <div>เบอร์โทรศัพท์ลูกค้า</div>
-                <input type="text" value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
+                    <div>เบอร์โทรศัพท์ลูกค้า</div>
+                    <input type="text" value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
 
-                <div>ที่อยู่ลูกค้า</div>
-                <input type="text" value={customerAddress} onChange={(e) => setCustomerAddress(e.target.value)} />
+                    <div>ที่อยู่ลูกค้า</div>
+                    <input type="text" value={customerAddress} onChange={(e) => setCustomerAddress(e.target.value)} />
 
-                <div>หมายเหตุ</div>
-                <input type="text" value={remark} onChange={(e) => setRemark(e.target.value)} />
+                    <div>หมายเหตุ</div>
+                    <input type="text" value={remark} onChange={(e) => setRemark(e.target.value)} />
 
-                <div>จำนวนสินค้า</div>
-                <input type="number" value={qty} onChange={(e) => setQty(Number(e.target.value ?? 0))} />
+                    <div>จำนวนสินค้า</div>
+                    <input type="number" value={qty} onChange={(e) => setQty(Number(e.target.value ?? 0))} />
 
-                <div>
-                    <button className="btn" onClick={handleSave}>
-                        <i className="fa-solid fa-save mr-2"></i>บันทึก
-                    </button>
+                    <div className="mt-2">
+                        <button className="btn" onClick={handleSave}>
+                            <i className="fa-solid fa-save mr-2"></i>บันทึก
+                        </button>
+                    </div>
                 </div>
-                
             </Modal>
         </div>
     )
