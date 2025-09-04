@@ -32,11 +32,20 @@ export default function SignIn() {
                 })
             }
         }catch(error: any) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: error.message,
-            })
+            if (error.response.status === 401) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'ตรวจสอบ user',
+                    text: 'ชื่อผู้ใช้งาน หรือ รหัสผ่านไม่ถูกต้อง',
+                    timer: 2000
+                })
+            }else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: error.message,
+                })
+            }
         }
     }
 
@@ -61,7 +70,7 @@ export default function SignIn() {
                 <button 
                     className="mt-4"
                     onClick={handleSignIn} 
-                >Sign In Now
+                >Sign In
                 </button>
             </div>
         </div>
