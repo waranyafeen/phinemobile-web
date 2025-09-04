@@ -19,7 +19,7 @@ export default function Modal({ title, children, isOpen, onClose }: ModalProps) 
                         ><i className="fa-solid fa-xmark"></i>
                         </button>
                     </h2>
-                    <div className="mb-4 p-5">
+                    <div className="mb-4 p-4">
                         {children}
                     </div>
                 </div>
