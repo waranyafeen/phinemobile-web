@@ -157,3 +157,12 @@ input:focus {
   background-color: #c41411;
   border-color: #c41411;
 }
+
+.form-control {
+  padding: 8px;
+  border: 1px solid #9e9e9e; 
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
