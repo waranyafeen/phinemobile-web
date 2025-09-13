@@ -166,3 +166,9 @@ input:focus {
   transition: all 0.2s ease-in-out;
   width: 100%;
 }
+
+.btn-active {
+  background-color: #fff;
+  border-color: #00897b;
+  color: #00897b;
+}
