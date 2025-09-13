@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const route = useRouter();
+    const router = useRouter();
 
     const handleSignIn = async () => {
         try {
@@ -22,7 +22,14 @@ export default function SignIn() {
             
             if (response.data.token !== null) {
                 localStorage.setItem('token', response.data.token) //เก็บ token ไว้หลังบ้านให้ token มา
-                route.push('/backoffice/dashboard');
+                
+                //route.push('/backoffice/dashboard');
+
+                if (response.data.level === 'admin') {
+                    router.push('/backoffice/dashboard')
+                } else {
+                    router.push('/backoffice/sell')
+                }
             }else { //แต่ถ้ากรอกข้อมูลผิดก็จะแสดง
                 Swal.fire({
                     icon: 'warning',
