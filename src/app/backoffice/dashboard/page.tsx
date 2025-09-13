@@ -15,8 +15,15 @@ export default function Page() {
     const [totalRepair, setTotalRepair] = useState(0); //รายการซ่อมทั้งหมด
     const [totalSale, setTotalSale] = useState(0); //รายการขายทั้งหมด
 
+    const [listYears, setListYears] = useState<any[]>([])
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
+
     useEffect(() => {
-        FetchData(); //ดึงข้อมูลฟลังบ้านมา
+        const prevYear = new Date().getFullYear() - 5
+        const years = Array.from({ length: 6}, (_, index) => prevYear + index)
+        setListYears(years)
+
+        FetchData(); //ดึงข้อมูลหลังบ้านมา
         renderChart();
     }, []);
 
@@ -46,7 +53,7 @@ export default function Page() {
 
     const FetchData = async () => {
         try {
-            const res = await axios.get(`${config.apiUrl}/sell/dashboard`)
+            const res = await axios.get(`${config.apiUrl}/sell/dashboard/${currentYear}`)
             setTotalIncome(res.data.totalIncome)
             setTotalRepair(res.data.totalRepair)
             setTotalSale(res.data.totalSale)
@@ -62,6 +69,30 @@ export default function Page() {
     return (
         <div >
             <h1 className="content-header">Dashboard</h1>
+
+            <div className="flex gap-4 mb-3 items-center"> 
+                <div className="w-[50px] text-right">เลือกปี</div>
+                <select 
+                    value={currentYear}
+                    onChange={(e) => setCurrentYear(parseInt(e.target.value))}
+                    className="form-control"
+                    style={{ width: '200px'}}
+                >
+                    {listYears.map((year, index) => (
+                        <option key={index} value={year}>
+                            {year}
+                        </option>
+                    ))}
+                </select>
+                <button 
+                    className="btn flex items-center w-[161px]"
+                    onClick={() => { 
+                        FetchData()
+                        renderChart()
+                    }}>
+                    <i className="fa-solid fa-magnifying-glass mr-3"></i>แสดงรายการ
+                </button>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 {box('bg-purple-600', 'ยอดขายทั้งหมด', totalIncome.toLocaleString() + ' บาท')}
